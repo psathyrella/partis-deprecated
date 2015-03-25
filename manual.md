@@ -75,8 +75,7 @@ cd partis/packages/ham/
 scons
 cd ../samtools/
 make
-ln -s $PWD/samtools ~/bin/
-export PATH=~/bin:$PATH
+export PATH=$PWD:$PATH
 cd ../ighutil/
 make -C clj
 pip install --user ./python

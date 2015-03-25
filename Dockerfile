@@ -28,7 +28,6 @@ RUN pip install \
     pyyaml
 RUN R --vanilla --slave -e 'install.packages("TreeSim", repos="http://cran.rstudio.com/")'
 
-
 COPY . /partis
 WORKDIR /partis
-CMD ./build-and-test.sh
+CMD ./bin/build-and-test.sh

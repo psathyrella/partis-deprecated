@@ -3,7 +3,7 @@ set -eu
 
 export LEIN_ROOT=1
 cd /partis/packages/samtools/ && make
-export PATH=$PWD/samtools:$PATH
+export PATH=$PWD:$PATH
 cd /partis/packages/ighutil/ && make -C clj
 pip install --user ./python
 cd /partis/packages/ham/ && scons bcrham

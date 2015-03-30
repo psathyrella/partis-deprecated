@@ -29,7 +29,7 @@ Then enter it with
 This will drop you into the main `partis/` directory, from which you'll want to build:
 
 ```
-. ./bin/handbuild.sh
+source ./bin/handbuild.sh
 ```
 
 Then, you can run the full analysis chain with
@@ -81,7 +81,7 @@ cd partis
 And then build:
 
 ```
-. ./bin/handbuild.sh
+source ./bin/handbuild.sh
 ```
 
 ### Subcommands
@@ -160,5 +160,3 @@ The command
 ```./bin/run-driver.py --label example --datafname test/A-every-100-subset-0.tsv.bz2 --plotdir _plots/example```
 
 will cache data parameters, run simulation, cache simulation parameters, and then run annotation a final time in order to plot performance.
-
-x

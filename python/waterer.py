@@ -133,6 +133,7 @@ class Waterer(object):
         """
         # large gap-opening penalty: we want *no* gaps in the middle of the alignments
         # match score larger than (negative) mismatch score: we want to *encourage* some level of shm. If they're equal, we tend to end up with short unmutated alignments, which screws everything up
+        os.environ['PATH'] = os.getenv('PWD') + '/packages/samtools:' + os.getenv('PATH')
         check_output(['which', 'samtools'])
         cmd_str = self.args.ighutil_dir + '/bin/vdjalign align-fastq -q'
         if self.args.slurm:

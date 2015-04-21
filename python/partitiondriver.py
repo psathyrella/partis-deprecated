@@ -2,6 +2,7 @@ import time
 import sys
 import json
 import itertools
+import shutil
 import math
 import os
 import glob
@@ -209,6 +210,12 @@ class PartitionDriver(object):
                 print '%shmm clusters' % prefix
             clusters = Clusterer(self.args.pair_hmm_cluster_cutoff, greater_than=True, singletons=preclusters.singletons)
             clusters.cluster(input_scores=hmminfo, debug=self.args.debug, reco_info=self.reco_info, outfile=self.outfile, plotdir=self.args.plotdir+'/pairscores')
+
+        if self.args.outfname is not None:
+            outpath = self.args.outfname
+            if self.args.outfname[0] != '/':  # if full output path wasn't specified on the command line
+                outpath = os.getcwd() + '/' + outpath
+            shutil.copyfile(csv_outfname, outpath)
 
         if not self.args.no_clean:
             if os.path.exists(csv_infname):  # if only one proc, this will already be deleted
